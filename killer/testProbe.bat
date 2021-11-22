@@ -1,0 +1,2 @@
+cd killer
+Probe.bat

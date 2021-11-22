@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE grammar PUBLIC "-//W3C//DTD GRAMMAR 1.0//EN"
+                "grammar.dtd">
+<!-- the default grammar language is FR  -->
+<grammar  version="1.0"
+          mode ="voice"
+          xmlns="http://www.w3.org/2001/06/grammar"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.w3.org/2001/06/grammar
+                              grammar.xsd"
+          xml:lang="fr-FR" root="Commade" tag-format="semantics/1.0">
+         
+
+   <rule id="Commade" scope="public"> 
+    <ruleref special="GARBAGE" />	
+		<item> <ruleref uri="#verbe"/> </item>
+		<item>	
+			<one-of> 
+				<item> <ruleref uri="#ca"/> </item>
+				<item> <ruleref uri="#Designation"/> <ruleref uri ="#Forme"/> </item>
+				<item> <ruleref uri ="#Forme"/> </item>
+			</one-of>
+		</item>	
+		<item repeat="0-1">
+			<one-of> 
+				<item> <ruleref uri="#Couleur"/> </item>
+				<item> <ruleref uri="#Position"/> </item>
+				<item> <ruleref uri="#Couleur"/> <ruleref uri="#Position"/> </item>
+				<item> <ruleref uri="#Position"/> <ruleref uri="#Couleur"/> </item>
+			</one-of>
+		</item>
+
+    <ruleref special="GARBAGE" />
+  </rule> 
+  
+	 
+    <rule id="verbe">
+    <one-of>
+      <item>Creer</item>
+      <item>Deplacer</item>
+	  <item>Copier</item>
+	<!--  <item>Supprimer</item> -->
+    </one-of> 
+  </rule>  
+  
+   <rule id="Forme">
+    <one-of>
+      <item>Cercle</item>
+      <item>Rectangle</item>
+	  <item>Triangle</item>
+    </one-of> 
+  </rule> 
+  
+   <rule id="ca">
+    <one-of>
+      <item>ca</item>
+    </one-of> 
+  </rule> 
+  
+   <rule id="Couleur">
+    <one-of>
+      <item>Rouge</item>
+      <item>Bleu</item>
+      <item>Vert</item>
+    </one-of> 
+  </rule> 
+  
+   <rule id="Position">
+    <one-of>
+      <item>ici</item>
+      <item>la</item>
+    </one-of>
+  </rule>
+  
+   <rule id="Designation">
+    <one-of>
+      <item>ce</item>
+    </one-of>
+  </rule>
+  
+</grammar>
